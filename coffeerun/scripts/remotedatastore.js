@@ -34,10 +34,6 @@
     });
   };
 
-//   dpd.coffeeorders.del("000000000000000000000000", function (err) {
-//   if(err) console.log(err);
-// });
-
   RemoteDataStore.prototype.remove = function (key) {
     $.ajax(this.serverUrl + "/" + key, {
       type: "DELETE"
