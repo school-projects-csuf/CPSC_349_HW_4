@@ -3,7 +3,7 @@
   var App = window.App || {};
 
   var Validation = {
-    isCompanyEmail: function (email) {
+    isCompanyEmail: function(email) {
       return /.+@bignerdranch\.com$/.test(email);
     }
   };

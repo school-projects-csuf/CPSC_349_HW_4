@@ -31,20 +31,19 @@
     });
   };
 
-
-
-
   RemoteDataStore.prototype.get = function(key, cb) {
-    $.get(this.serverUrl + "/" + key, function(serverResponse) {
+    $.get(this.serverUrl + "?emailAddress=" + key, function(serverResponse) {
       /* eslint-disable-next-line no-console */
-      console.log(serverResponse);
+      console.log(serverResponse[0].id);
       cb(serverResponse);
     });
   };
 
   RemoteDataStore.prototype.remove = function(key) {
-    $.ajax(this.serverUrl + "/" + key, {
-      type: "DELETE"
+    $.get(this.serverUrl + "?emailAddress=" + key, function(serverResponse) {
+      $.ajax("http://localhost:2403/coffeeorders/" + serverResponse[0].id, {
+        type: "DELETE"
+      });
     });
   };
 
